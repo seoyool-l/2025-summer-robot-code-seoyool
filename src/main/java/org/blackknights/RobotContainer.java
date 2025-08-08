@@ -31,6 +31,7 @@ public class RobotContainer {
     IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
     ClimberSubsystem climberSubsystem = new ClimberSubsystem();
     ButtonBoardSubsystem buttonBoardSubsystem = new ButtonBoardSubsystem(buttonBoard);
+    ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
 
     // Controllers
     CommandXboxController primaryController = new CommandXboxController(0);
@@ -128,6 +129,10 @@ public class RobotContainer {
                         true,
                         true));
 
+        primaryController
+                .x()
+                .whileTrue(
+                        new ShootCommand(shooterSubsystem));
         primaryController
                 .leftBumper()
                 .whileTrue(
